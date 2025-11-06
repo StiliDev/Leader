@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Лидер Дейтабейз ЕООД</title>
+</head>
+
+<body class="home-page">
+     <header>
+        <nav>
+            <a class="logo" href="index.html">Лидер Дейтабейз ЕООД</a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+<ul class="nav-links">
+    <li><a href="index.html">Начало</a></li>
+    <li class="dropdown">
+        <a href="#">Услуги</a>
+        <ul class="dropdown-menu">
+<li><a href="web_services.html">Уеб услуги</a></li>
+<li><a href="accounting_services.html">Счетоводни услуги</a></li>
+<li><a href="info_and_consult_services.html">Информационни и консултански услуги</a></li>
+
+        </ul>
+    </li>
+    <li><a href="contact.html">Контакти</a></li>
+</ul>            
+        </nav>
+    </header>
+
+    <div class="side-menu" id="sideMenu">
+      <button class="close-btn">&times;</button>
+      <ul>
+        <li><a href="index.html">Начало</a></li>
+        <li class="has-submenu">
+          <a href="#">Услуги</a>
+          <ul class="submenu">
+           <li><a href="web_services.html">Уеб услуги</a></li>
+<li><a href="accounting_services.html">Счетоводни услуги</a></li>
+<li><a href="info_and_consult_services.html">Информационни и консултански услуги</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Контакти</a></li>
+      </ul>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <h1>Информационни и консултански услуги</h1>
+            <p>Дружеството е създадено през 1996г. и е специализирано в сферата на информационните услуги.
+                Екипът ни има дъллгогодишен опит в обработката на статистическа информация, документообработка и консултански услуги.
+                Приели сме за наша мисия да работим съвместно с партньорите си за планиране и достигане на успешни бизнес цели.
+            </p>
+            <a href="#services" class="btn">Разгледайте нашите услуги</a>
+        </div>
+    </section>
+    <section class="services fade-in" id="services">
+        <h2>Нашите услуги</h2>
+        <div class="service-cards">
+            <div class="card">
+<h3>Информационни услуги</h3>
+<p>Професионална обработка на статистическа информация</p>
+ <a href="info.html" class="btn">Научи повече</a>
+            </div>
+
+            <div class="card">
+<h3>Консултански услуги</h3>
+<p>Професионални консултазии за защита на данните и видеонаблюдение</p>
+ <a href="consult.html" class="btn">Научи повече</a>
+            </div>
+
+            <div class="card">
+<h3>Информационни услуги</h3>
+<p>Професионални услуги свързани с обработката на документи</p>
+ <a href="doccument.html" class="btn">Научи повече</a>
+            </div>
+        </div>
+    </section>
+
+     <footer >
+        <p>&copy; Leader Database LTD</p>
+        <p>Designed by Leader Database LTD</p>
+    </footer>
+    
+ <script>
+  const hamburger = document.querySelector(".hamburger");
+  const sideMenu = document.getElementById("sideMenu");
+  const overlay = document.getElementById("overlay");
+  const closeBtn = document.querySelector(".side-menu .close-btn");
+
+  // Отваряне на менюто
+  hamburger.addEventListener("click", () => {
+    sideMenu.classList.add("active");
+    overlay.classList.add("active");
+  });
+
+  // Затваряне с Х бутона
+  closeBtn.addEventListener("click", () => {
+    sideMenu.classList.remove("active");
+    overlay.classList.remove("active");
+  });
+
+  // Затваряне при клик върху overlay
+  overlay.addEventListener("click", () => {
+    sideMenu.classList.remove("active");
+    overlay.classList.remove("active");
+  });
+
+  // Dropdown функционалност
+  document.querySelectorAll(".has-submenu > a").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      link.parentElement.classList.toggle("open");
+    });
+  });
+</script>
+
+<script>
+  // --- Scroll Fade-in ефект ---
+  const fadeElements = document.querySelectorAll('.fade-in');
+
+  function handleScroll() {
+    fadeElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        el.classList.add('visible');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', handleScroll);
+  handleScroll(); // За да се активира и при зареждане
+</script>
+
+</body>
+</html>
