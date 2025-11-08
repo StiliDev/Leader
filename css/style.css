@@ -24,18 +24,19 @@ body {
 
 /* === Хедър и навигация === */
 header {
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(10px);
   position: fixed;
-  width: 100%;
   top: 0;
   left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
   z-index: 1000;
 }
 
+/* === Основна навигация === */
 nav {
   max-width: var(--max-width);
-  margin: auto;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -49,43 +50,62 @@ nav {
   text-decoration: none;
 }
 
+/* === Линкове в навигацията === */
 .nav-links {
   list-style: none;
   display: flex;
   gap: 2rem;
   position: relative;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links a {
   color: #fff;
   text-decoration: none;
-  transition: 0.3s;
+  transition: all 0.25s ease;
 }
 
 .nav-links a:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
   padding: 0.3rem 0.6rem;
   border-radius: 6px;
 }
 
-/* === Dropdown === */
+/* === Dropdown меню === */
 .dropdown-menu {
-  display: none;
   position: absolute;
+  top: 100%;
+  left: 0;
   background: rgba(20, 20, 30, 0.95);
-  padding: 0.5rem 0;
   border-radius: 8px;
-  margin-top: 0.5rem;
+  padding: 0.5rem 0;
   list-style: none;
+  margin: 0.5rem 0 0;
+  min-width: 180px;
+
+  display: none;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none; /* предотвратява кликове когато е скрито */
+}
+
+.dropdown-menu.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .dropdown-menu li {
-  padding: 0.5rem 1rem;
+  padding: 0;
 }
 
 .dropdown-menu li a {
-  color: #fff;
   display: block;
+  padding: 0.5rem 1rem;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -94,21 +114,24 @@ nav {
   border-radius: 6px;
 }
 
-/* === Хамбургер бутон === */
+/* === Хамбургер бутон (само за мобилни) === */
 .hamburger {
   display: none;
   flex-direction: column;
-  cursor: pointer;
+  justify-content: center;
   gap: 5px;
+  cursor: pointer;
+  z-index: 2001; /* над header */
 }
 
 .hamburger span {
-  width: 25px;
+  width: 26px;
   height: 3px;
   background: #fff;
+  border-radius: 2px;
 }
 
-/* === Мобилно меню === */
+/* === Мобилно странично меню === */
 .side-menu {
   position: fixed;
   top: 0;
@@ -117,9 +140,10 @@ nav {
   height: 100vh;
   background: #111827;
   color: #fff;
-  padding: 2rem;
-  transition: 0.3s;
+  padding: 2rem 1.5rem;
+  transition: right 0.3s ease;
   z-index: 2000;
+  overflow-y: auto;
 }
 
 .side-menu.active {
@@ -140,13 +164,15 @@ nav {
 .side-menu ul {
   list-style: none;
   padding: 0;
+  margin: 2.5rem 0 0;
 }
 
 .side-menu a {
   color: #fff;
   text-decoration: none;
   display: block;
-  padding: 0.5rem 0;
+  padding: 0.6rem 0;
+  transition: background 0.25s ease;
 }
 
 .side-menu a:hover {
@@ -154,7 +180,7 @@ nav {
   border-radius: 5px;
 }
 
-/* Подменю в мобилната версия */
+/* === Подменю в мобилното меню === */
 .submenu {
   display: none;
   padding-left: 1rem;
@@ -164,7 +190,7 @@ nav {
   display: block;
 }
 
-/* === Overlay === */
+/* === Overlay (фон при активно меню) === */
 .overlay {
   position: fixed;
   top: 0;
@@ -173,11 +199,14 @@ nav {
   height: 100vh;
   background: rgba(0, 0, 0, 0.6);
   display: none;
-  z-index: 1000;
+  z-index: 1500;
+  transition: opacity 0.25s ease;
+  opacity: 0;
 }
 
 .overlay.active {
   display: block;
+  opacity: 1;
 }
 
 /* === Responsive === */
@@ -191,18 +220,6 @@ nav {
   }
 }
 
-.dropdown-menu {
-  display: none;
-  opacity: 0;
-  transform: translateY(-5px);
-  transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-.dropdown-menu.active {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-}
 
 
 
