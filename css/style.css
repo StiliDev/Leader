@@ -140,7 +140,7 @@ nav {
   height: 100vh;
   background: #111827;
   color: #fff;
-  padding: 2rem 1.5rem;
+  padding: 2rem 0;
   transition: right 0.3s ease;
   z-index: 2000;
   overflow-y: auto;
@@ -171,13 +171,15 @@ nav {
   color: #fff;
   text-decoration: none;
   display: block;
-  padding: 0.6rem 0;
-  transition: background 0.25s ease;
+  padding: 0.6rem 1.5rem;
+  transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 .side-menu a:hover {
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 5px;
+  border-radius: 6px; 
+
 }
 
 /* === Подменю в мобилното меню === */
