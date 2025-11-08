@@ -220,6 +220,42 @@ nav {
   }
 }
 
+/* --- Подменю в мобилната версия --- */
+#sideMenu ul li {
+  position: relative;
+  overflow: hidden;
+}
+
+#sideMenu ul li ul {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  opacity: 0;
+
+  /* фиксовете за позицията */
+  margin: 0;
+  padding-left: 1rem;
+  list-style: none;
+
+}
+
+#sideMenu ul li.active ul {
+  max-height: 400px; /* колкото трябва, за да побере подменюто */
+  opacity: 1;
+  margin-top:0.3em;
+}
+
+/* --- Стрелка вдясно на "Услуги" --- */
+#mobileServices::after {
+  content: "▸";
+  display: inline-block;
+  margin-left: 6px;
+  transition: transform 0.3s ease;
+}
+
+#sideMenu ul li.active > #mobileServices::after {
+  transform: rotate(90deg);
+}
 
 
 
