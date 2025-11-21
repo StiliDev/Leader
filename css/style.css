@@ -780,6 +780,96 @@ footer {
   }
 }
 
+/* Картинката във футъра */
+.project-image {
+    max-width: 260px;
+    display: block;
+    margin-bottom: 15px;
+    opacity: 0.95;
+}
+
+/* Desktop: показва само във футъра */
+.desktop-only {
+    display: block;
+}
+
+/* Mobile: показва само в sidebar */
+.mobile-only {
+    display: none;
+}
+
+/* На мобилен – разменяме видимостта */
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none;
+    }
+    .mobile-only {
+        display: block;
+        width: 90%;
+        margin: 20px auto;
+    }
+}
+
+footer {
+    position: relative;
+    background: #0b0f1c;
+    color: #ccc;
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+}
+
+/* EU Corner – малка, прибрана картинка */
+.eu-corner {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 120px;       /* регулираш размера */
+    opacity: 0.95;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* Мобилно – махаме от футъра */
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none;
+    }
+}
+
+/* Popup overlay */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Голямата снимка */
+.popup-img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #000;
+}
+
+/* X бутон */
+.close-popup {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+}
+
 
 
 
